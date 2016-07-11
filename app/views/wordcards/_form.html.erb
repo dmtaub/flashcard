@@ -1,0 +1,25 @@
+<%= form_for(wordcard) do |f| %>
+  <% if wordcard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wordcard.errors.count, "error") %> prohibited this wordcard from being saved:</h2>
+
+      <ul>
+      <% wordcard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input">
+    <%= f.label :word %> <%= f.text_field :word %>
+  </div>
+
+  <div class="input">
+    <%= f.label :definition %> <%= f.text_area :definition %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
