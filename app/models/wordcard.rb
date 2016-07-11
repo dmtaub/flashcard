@@ -1,0 +1,2 @@
+class Wordcard < ApplicationRecord
+end
