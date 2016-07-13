@@ -1,3 +1,22 @@
 // Place all the styles related to the Wordcards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.wordcard{
+	margin-top: 20px;
+	width: 200px;
+	height: 100%;
+	border: 2px solid black;
+	border-radius: 15px;
+	line-height: 50px;
+}
+
+.word {
+		font-size: 50px;
+		text-align: center;
+}
+
+.definition{
+	visibility: hidden;
+}

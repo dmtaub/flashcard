@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160711130943) do
     t.text     "definition"
     t.integer  "bin",         default: 0
     t.integer  "times_wrong", default: 0
-    t.         "datetime"
+    t.datetime "reviewed_at"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

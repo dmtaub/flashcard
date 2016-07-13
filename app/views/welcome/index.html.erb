@@ -1,0 +1,13 @@
+<%= link_to "admin", :wordcards %>
+
+<% if @available.present? %>
+	<div class="wordcard">
+		<div class="word"><%= @available.word %></div>
+		<div class="definition"><%= @available.definition %></div>
+	</div>
+	<%#= button_to "Got it right!", [:update, @available], :options=> {data: true, remote: true}%>
+	<%#= button_to "Got it wrong!", [:update, @available], :options=> {data: false, remote: true} %>
+<% end %>
+
+
+<%= render 'wordcards/noticeholder' %>

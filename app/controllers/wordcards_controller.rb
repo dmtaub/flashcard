@@ -1,5 +1,6 @@
 class WordcardsController < ApplicationController
   before_action :set_wordcard, only: [:show, :edit, :update, :destroy]
+  before_action :set_notice
 
   # GET /wordcards
   # GET /wordcards.json
@@ -71,4 +72,10 @@ class WordcardsController < ApplicationController
     def wordcard_params
       params.fetch(:wordcard, {}).permit(:word,:definition)
     end
+
+    def set_notice
+      @notice ||= flash[:notice]
+    end
+
+
 end

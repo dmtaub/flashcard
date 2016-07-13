@@ -49,19 +49,8 @@ div {
   }
 }
 
-#notice {
-  color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
+#notice, #error_explanation{
   width: 450px;
-  border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
@@ -74,6 +63,35 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+
+}
+
+#notice {
+  color: green;
+  border: 2px solid green;
+  h2 {
+    background-color: #0c0;
+    color: #fff;
+  }
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  border: 2px solid red;
+
+  h2 {
     background-color: #c00;
     color: #fff;
   }
@@ -92,3 +110,8 @@ label {
 .input {
   margin-top: 5px;
 }
+
+#error_explanation, #notice{
+  float:right;
+}
+
