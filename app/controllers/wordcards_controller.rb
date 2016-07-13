@@ -52,6 +52,22 @@ class WordcardsController < ApplicationController
     end
   end
 
+  # special route for handling result. could overload update, but this is more clear
+  def result
+    @wordcard = Wordcard.find(params[:wordcard_id])
+    return if !@wordcard
+    result = params.fetch :result
+    if result
+      @wordcard.bin = [@wordcard.bin + 1, 11].min
+      notice = "Correct! '#{@wordcard.word}' was moved to bin #{@wordcard.bin}"
+    else
+      @wordcard.bin = 1
+      notice = "Incorrect. '#{@wordcard.word}' was moved back to bin 1"
+    end
+    @wordcard.save
+    redirect_to :root, :notice => notice
+  end
+
   # DELETE /wordcards/1
   # DELETE /wordcards/1.json
   def destroy
