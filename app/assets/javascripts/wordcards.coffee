@@ -2,9 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ()-> #onload
+ready = -> #onload
+	console.log "LOAD!"
 	showBtn = $('.show-definition')
 	definition = $('.definition')
 	showBtn.click ()->
 		showBtn.hide()
 		definition.show();
+
+$(document).on('turbolinks:load', ready)
