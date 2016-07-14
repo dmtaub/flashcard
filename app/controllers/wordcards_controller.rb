@@ -65,7 +65,10 @@ class WordcardsController < ApplicationController
     elsif result == "false"
       @wordcard.bin = 1
       notice = "Incorrect. '#{@wordcard.word}' was moved back to bin 1"
-      @wordcard.times_wrong+=1
+      @wordcard.times_wrong += 1
+      if @wordcard.times_wrong >= 10
+        @wordcard.bin = 13 #unlucky bin..never show again!
+      end
     end
     @wordcard.reviewed_at = DateTime.now
     @wordcard.save

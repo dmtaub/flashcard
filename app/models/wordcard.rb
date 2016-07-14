@@ -51,7 +51,7 @@ class Wordcard < ApplicationRecord
   	when 10
   		4.months
   	else
-  		1000.years # essentially infinity, never show
+  		1000.years # essentially infinity, never show (for bin 13 "hard to remember")
   	end
 	end
 
