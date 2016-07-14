@@ -1,12 +1,13 @@
 class WelcomeController < ApplicationController
   def index
   	if flash[:notice]
-  		@notice = flash[:notice]+"\n"
+  		@notice = flash[:notice]
   	else
   		@notice ||= ""
   	end
 
 		unless Wordcard.available_words.present?
+			@notice += " -- " if @notice.length > 0 # divider for now
 			unless Wordcard.current_words.present?
 		    	@notice += 'You have no more words to review; you are permanently done!'
 	    	else

@@ -72,6 +72,11 @@ class WordcardsController < ApplicationController
     redirect_to :root, :notice => notice
   end
 
+  def reset
+    Wordcard.all.each{|w|w.bin=0;w.save;}
+    redirect_to :wordcards, :notice => "All words reset to bin 0"
+  end
+
   # DELETE /wordcards/1
   # DELETE /wordcards/1.json
   def destroy
