@@ -67,7 +67,7 @@ class Wordcard < ApplicationRecord
   def self.words_whose_time_has_come
   	ready = current_words.where 'bin = ?',0
 		found = []
-		current_words.where('bin != ?',0).each do |word|
+		current_words.where('bin != ?',0).order(bin: :desc).each do |word|
 			found.append word if word.time_has_come
 		end
 
