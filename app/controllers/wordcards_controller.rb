@@ -57,14 +57,18 @@ class WordcardsController < ApplicationController
     @wordcard = Wordcard.find(params[:wordcard_id])
     return if !@wordcard
     result = params.fetch :result
-    if result
+    return if result.nil?
+
+    if result == "true"
       @wordcard.bin = [@wordcard.bin + 1, 11].min
       notice = "Correct! '#{@wordcard.word}' was moved to bin #{@wordcard.bin}"
-    else
+    elsif result == "false"
       @wordcard.bin = 1
       notice = "Incorrect. '#{@wordcard.word}' was moved back to bin 1"
     end
+    @wordcard.reviewed_at = DateTime.now
     @wordcard.save
+
     redirect_to :root, :notice => notice
   end
 

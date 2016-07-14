@@ -59,9 +59,10 @@ class Wordcard < ApplicationRecord
 
   def self.words_whose_time_has_come
   	ready = current_words.where 'bin == 0'
-	to_test = current_words.where('bin != 0').each
-	found = []
-	to_test.each { |word| found += word if word.time_has_come }
+		found = []
+		current_words.where('bin != 0').each do |word|
+			found.append word if word.time_has_come
+		end
 
     found.concat(ready)
   end
