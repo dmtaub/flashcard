@@ -26,6 +26,7 @@ class WordcardsController < ApplicationController
   # POST /wordcards.json
   def create
     @wordcard = Wordcard.new(wordcard_params)
+    @wordcard.reviewed_at = DateTime.now
 
     respond_to do |format|
       if @wordcard.save

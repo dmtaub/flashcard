@@ -21,7 +21,7 @@ class Wordcard < ApplicationRecord
 		if reviewed_at.present?
 			-[time_to_next_review.ago-reviewed_at,0].min
 		else
-			Float::INFINITY
+			1000.years # essentially infinity,
 		end
 	end
 
@@ -57,7 +57,7 @@ class Wordcard < ApplicationRecord
 
 
   def self.current_words
-    Wordcard.all.where 'bin < 11'
+    Wordcard.all.where 'bin < ?', 11
   end
 
   def self.available_words
@@ -65,9 +65,9 @@ class Wordcard < ApplicationRecord
   end
 
   def self.words_whose_time_has_come
-  	ready = current_words.where 'bin == 0'
+  	ready = current_words.where 'bin = ?',0
 		found = []
-		current_words.where('bin != 0').each do |word|
+		current_words.where('bin != ?',0).each do |word|
 			found.append word if word.time_has_come
 		end
 
