@@ -1,6 +1,5 @@
 class Wordcard < ApplicationRecord
   validates :word, :definition, presence: true, allow_blank: false
-
 	# Bin 0 -- start/default & review now!
 	# Bins 1-11 are associated with the following 'time to next review':
 	# Bin 1 - 5 seconds
@@ -18,6 +17,14 @@ class Wordcard < ApplicationRecord
 	def time_has_come
 		reviewed_at.present? and time_to_next_review.ago-reviewed_at > 0
 	end
+	def time_to_next_appearance
+		if reviewed_at.present?
+			-[time_to_next_review.ago-reviewed_at,0].min
+		else
+			Float::INFINITY
+		end
+	end
+
 
   def time_to_next_review
   	case bin

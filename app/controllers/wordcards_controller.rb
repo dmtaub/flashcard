@@ -65,6 +65,7 @@ class WordcardsController < ApplicationController
     elsif result == "false"
       @wordcard.bin = 1
       notice = "Incorrect. '#{@wordcard.word}' was moved back to bin 1"
+      @wordcard.times_wrong+=1
     end
     @wordcard.reviewed_at = DateTime.now
     @wordcard.save
@@ -73,8 +74,8 @@ class WordcardsController < ApplicationController
   end
 
   def reset
-    Wordcard.all.each{|w|w.bin=0;w.save;}
-    redirect_to :wordcards, :notice => "All words reset to bin 0"
+    Wordcard.all.each{|w|w.bin=0;w.times_wrong=0;w.save;}
+    redirect_to :wordcards, :notice => "All words reset to bin/count = 0"
   end
 
   # DELETE /wordcards/1
