@@ -1,13 +1,18 @@
 <%= link_to "admin", :wordcards %>
+<%= render 'wordcards/noticeholder' %>
 
 <% if @available.present? %>
 	<div class="wordcard">
 		<div class="word"><%= @available.word %></div>
-		<div class="definition"><%= @available.definition %></div>
+		<div class="definition">
+			<%= @available.definition %>
+		</div>
+		<div class="show-definition"><span>Show Definition</span></div>
 	</div>
-	<%= button_to "I got it", wordcard_result_path(@available), :params => {result: true} %>
-	<%= button_to "I did not get it", wordcard_result_path(@available), :params => {result: false} %>
+	<div class="definition buttons">
+		<%= button_to "I got it", wordcard_result_path(@available), :params => {result: true} %>
+		<%= button_to "I did not get it", wordcard_result_path(@available), :params => {result: false} %>
+	</div>
 <% end %>
 
 
-<%= render 'wordcards/noticeholder' %>

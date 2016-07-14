@@ -4,6 +4,7 @@
 
 
 .wordcard{
+padding: 20px;
 	margin-top: 20px;
 	width: 200px;
 	height: 100%;
@@ -15,10 +16,33 @@
 .word {
 		font-size: 50px;
 		text-align: center;
+		margin-bottom: 10px;
+}
+
+.show-definition{
+	span{
+		cursor: pointer;
+		display: inline-block;
+		border: 1px solid black;
+		border-radius: 5px;
+		margin: 0 auto;
+		padding: 10px;
+		line-height: 20px;
+		&:hover{
+			background: black;
+			color: white;
+		}
+		&:active{
+			background: grey;
+			color: white;
+		}
+	}
+	text-align: center;
+
 }
 
 .definition{
-	visibility: hidden;
+	display:none;
 }
 
 .button_to {
