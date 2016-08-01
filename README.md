@@ -1,15 +1,19 @@
 Flashcard Take-home Project Specs
+=================================
 
 Overview
+--------
 In overview, the user creates vocabulary flashcards she wants to study. When reviewing a flashcard, the user can choose whether she got it right or not. Each time she gets it right, the time for the card to reappear is increased. If she gets it wrong, the card is reset to reappear much sooner. This is a basic spaced repetition learning model.
 
 Tech Requirements
+--------
 - Build as a web app - should be accessible via browser
 - App should be deployed to a live server and should not need local deployment to test
 - Must build with an MVC framework (eg Django, Rails)
 - Final code should be shared with us. 
 
 Feature Specs
+--------
 Admin Interface:
 - Create tool where the user can create a single word and definition
 - View cards tool that displays all cards and their current status (bin, time to next appearance, # of times answered incorrect)
@@ -31,13 +35,14 @@ Flashcard Logic:
  - If a user has gotten any single word wrong 10 times ever (even if they got the word right in between; this is a lifetime count), the word gets put into a “hard to remember” bin and is never shown again.
  - If all words are either in the last bin (never review) or in “hard to remember”, display a message “you have no more words to review; you are permanently done!”
 
-User Interaction:
+User Interaction
+--------
 - When a user loads the app, he is a shown a word.
  - When he sees a word and clicks “show definition” the definition displays.
  - After seeing the definition, he clicks “I got it” or “I did not get it”
 - Status messages may also be shown as defined above
 - UI can be simple and uitilitarian. 
 
-
 Suggestions
+--------
 On the technical side, we're looking for feature functionality, code organization, and overall decision making. Treat this project like an MVP, getting the functionality out quickly rather than bloating it.
