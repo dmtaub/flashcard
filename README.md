@@ -16,25 +16,25 @@ Admin Interface:
 
 Flashcard Logic:
 - There are 12 bins of cards, each representing increasing levels of mastery.
--- Each user-word starts out in bin 0.
--- If a user gets a word right, it moves to the next bin, up to bin 11.
--- If a user gets a word wrong, it goes back to bin 1.
--- Bins 1-11 are associated with the following timespans:  5 seconds, 25 seconds, 2 minutes, 10 minutes, 1 hour, 5 hours, 1 day, 5 days, 25 days, 4 months, and never. The timespans reflect the amount of time to wait before the next review of that card.
+ - Each user-word starts out in bin 0.
+ - If a user gets a word right, it moves to the next bin, up to bin 11.
+ - If a user gets a word wrong, it goes back to bin 1.
+ - Bins 1-11 are associated with the following timespans:  5 seconds, 25 seconds, 2 minutes, 10 minutes, 1 hour, 5 hours, 1 day, 5 days, 25 days, 4 months, and never. The timespans reflect the amount of time to wait before the next review of that card.
 
 - Reviewing Words:
--- If any words have reached 0 time or less, review these first.
---- For the subset above, review higher-numbered bins before lower bins.
--- If all words have positive timers on them, start drawing new words from bin 0.
--- If there are no words in bin 0 and all words still have positive timers, display a message: “You are temporarily done; please come back later to review more words.”
+ - If any words have reached 0 time or less, review these first.
+  - For the subset above, review higher-numbered bins before lower bins.
+ - If all words have positive timers on them, start drawing new words from bin 0.
+ - If there are no words in bin 0 and all words still have positive timers, display a message: “You are temporarily done; please come back later to review more words.”
 
 - Forgetting Words:
--- If a user has gotten any single word wrong 10 times ever (even if they got the word right in between; this is a lifetime count), the word gets put into a “hard to remember” bin and is never shown again.
--- If all words are either in the last bin (never review) or in “hard to remember”, display a message “you have no more words to review; you are permanently done!”
+ - If a user has gotten any single word wrong 10 times ever (even if they got the word right in between; this is a lifetime count), the word gets put into a “hard to remember” bin and is never shown again.
+ - If all words are either in the last bin (never review) or in “hard to remember”, display a message “you have no more words to review; you are permanently done!”
 
 User Interaction:
 - When a user loads the app, he is a shown a word.
--- When he sees a word and clicks “show definition” the definition displays.
--- After seeing the definition, he clicks “I got it” or “I did not get it”
+ - When he sees a word and clicks “show definition” the definition displays.
+ - After seeing the definition, he clicks “I got it” or “I did not get it”
 - Status messages may also be shown as defined above
 - UI can be simple and uitilitarian. 
 
